@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+
+    <PackageId>PollyRedis</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Swevo</Authors>
+    <Description>Polly v8 resilience for StackExchange.Redis. Automatic retry with exponential back-off on transient failures (RedisConnectionException, RedisTimeoutException), circuit breaker, and per-command timeout. Works with IDatabase via a clean facade and a DI-friendly IServiceCollection extension.</Description>
+    <PackageTags>polly;polly-v8;redis;stackexchange-redis;resilience;retry;circuit-breaker;timeout;caching;dotnet;csharp;fault-tolerance;transient-fault;backoff;microservices;distributed-cache;nosql;in-memory</PackageTags>
+    <PackageProjectUrl>https://github.com/Swevo/PollyRedis</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Swevo/PollyRedis</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>Initial release. Retry on RedisConnectionException/RedisTimeoutException with exponential back-off, circuit breaker, timeout, and DI extensions.</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Polly.Core" Version="8.*" />
+    <PackageReference Include="StackExchange.Redis" Version="2.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.*" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.*" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

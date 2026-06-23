@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PollyRedis/PollyRedis.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PollyRedis.Tests/PollyRedis.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,9 @@
+global using FluentAssertions;
+global using Microsoft.Extensions.DependencyInjection;
+global using NSubstitute;
+global using NSubstitute.ExceptionExtensions;
+global using Polly.CircuitBreaker;
+global using Polly.Timeout;
+global using PollyRedis;
+global using StackExchange.Redis;
+global using Xunit;
