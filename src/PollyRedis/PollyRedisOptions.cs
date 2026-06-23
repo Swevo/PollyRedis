@@ -1,0 +1,39 @@
+namespace PollyRedis;
+
+/// <summary>
+/// Configuration options for the Polly resilience pipeline applied to Redis commands.
+/// </summary>
+public sealed class PollyRedisOptions
+{
+    /// <summary>Maximum number of retry attempts on transient failures. Default: 3.</summary>
+    public int MaxRetries { get; set; } = 3;
+
+    /// <summary>Base delay between retry attempts (exponential back-off). Default: 200 ms.</summary>
+    public TimeSpan BaseDelay { get; set; } = TimeSpan.FromMilliseconds(200);
+
+    /// <summary>Maximum delay cap for exponential back-off. Default: 10 seconds.</summary>
+    public TimeSpan MaxDelay { get; set; } = TimeSpan.FromSeconds(10);
+
+    /// <summary>
+    /// Minimum number of requests in the sampling window before the circuit breaker can trip. Default: 5.
+    /// </summary>
+    public int CircuitBreakerMinimumThroughput { get; set; } = 5;
+
+    /// <summary>Failure ratio (0–1) at which the circuit breaker opens. Default: 0.5 (50%).</summary>
+    public double CircuitBreakerFailureRatio { get; set; } = 0.5;
+
+    /// <summary>Duration of the sliding window used to evaluate failure rate. Default: 30 seconds.</summary>
+    public TimeSpan CircuitBreakerSamplingDuration { get; set; } = TimeSpan.FromSeconds(30);
+
+    /// <summary>How long the circuit stays open before allowing a probe. Default: 30 seconds.</summary>
+    public TimeSpan CircuitBreakerBreakDuration { get; set; } = TimeSpan.FromSeconds(30);
+
+    /// <summary>Per-command timeout. Default: 5 seconds.</summary>
+    public TimeSpan CommandTimeout { get; set; } = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// Additional exception types to treat as transient (eligible for retry).
+    /// <see cref="RedisConnectionException"/> and <see cref="RedisTimeoutException"/> are always included.
+    /// </summary>
+    public IList<Type> AdditionalTransientExceptions { get; set; } = new List<Type>();
+}
